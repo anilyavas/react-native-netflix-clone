@@ -6,14 +6,7 @@ import { Pressable } from 'react-native';
 import Colors from '@/constants/Colors';
 import { useColorScheme } from '@/components/useColorScheme';
 import { useClientOnlyValue } from '@/components/useClientOnlyValue';
-
-// You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
-function TabBarIcon(props: {
-  name: React.ComponentProps<typeof FontAwesome>['name'];
-  color: string;
-}) {
-  return <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />;
-}
+import { MaterialIcons, AntDesign, Ionicons } from '@expo/vector-icons';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
@@ -21,22 +14,28 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        // Disable the static render of the header on web
-        // to prevent a hydration error in React Navigation v6.
+        tabBarActiveTintColor: 'white',
         headerShown: useClientOnlyValue(false, true),
-      }}>
+        tabBarStyle: {
+          backgroundColor: 'black',
+        },
+      }}
+      initialRouteName='Home'
+    >
       <Tabs.Screen
-        name="index"
+        name='Home'
         options={{
-          title: 'Tab One',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          headerShown: false,
+          title: 'Home',
+          tabBarIcon: ({ color }) => (
+            <AntDesign name='home' size={24} color={color} />
+          ),
           headerRight: () => (
-            <Link href="/modal" asChild>
+            <Link href='/modal' asChild>
               <Pressable>
                 {({ pressed }) => (
                   <FontAwesome
-                    name="info-circle"
+                    name='info-circle'
                     size={25}
                     color={Colors[colorScheme ?? 'light'].text}
                     style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
@@ -48,10 +47,33 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="two"
+        name='ComingSoon'
         options={{
-          title: 'Tab Two',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          headerShown: false,
+          title: 'Coming Soon',
+          tabBarIcon: ({ color }) => (
+            <MaterialIcons name='video-library' size={24} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name='Search'
+        options={{
+          headerShown: false,
+          title: 'Search',
+          tabBarIcon: ({ color }) => (
+            <Ionicons name='search' size={24} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name='Downloads'
+        options={{
+          headerShown: false,
+          title: 'Downloads',
+          tabBarIcon: ({ color }) => (
+            <AntDesign name='download' size={24} color={color} />
+          ),
         }}
       />
     </Tabs>
