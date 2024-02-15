@@ -9,7 +9,7 @@ type HomeCategoryProps = {
 };
 const HomeCategory = ({ category }: HomeCategoryProps) => {
   return (
-    <View>
+    <View style={{ padding: 10 }}>
       <Text style={styles.title}>{category.title}</Text>
       <FlatList
         data={category.movies}
@@ -22,6 +22,7 @@ const HomeCategory = ({ category }: HomeCategoryProps) => {
           />
         )}
         horizontal
+        showsHorizontalScrollIndicator={false}
       />
     </View>
   );
