@@ -15,7 +15,7 @@ export default function TabLayout() {
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: 'white',
-        headerShown: useClientOnlyValue(false, true),
+        headerShown: false,
         tabBarStyle: {
           backgroundColor: 'black',
         },
@@ -25,7 +25,6 @@ export default function TabLayout() {
       <Tabs.Screen
         name='Home'
         options={{
-          headerShown: false,
           title: 'Home',
           tabBarIcon: ({ color }) => (
             <AntDesign name='home' size={24} color={color} />
@@ -49,7 +48,6 @@ export default function TabLayout() {
       <Tabs.Screen
         name='ComingSoon'
         options={{
-          headerShown: false,
           title: 'Coming Soon',
           tabBarIcon: ({ color }) => (
             <MaterialIcons name='video-library' size={24} color={color} />
@@ -59,7 +57,6 @@ export default function TabLayout() {
       <Tabs.Screen
         name='Search'
         options={{
-          headerShown: false,
           title: 'Search',
           tabBarIcon: ({ color }) => (
             <Ionicons name='search' size={24} color={color} />
@@ -69,7 +66,6 @@ export default function TabLayout() {
       <Tabs.Screen
         name='Downloads'
         options={{
-          headerShown: false,
           title: 'Downloads',
           tabBarIcon: ({ color }) => (
             <AntDesign name='download' size={24} color={color} />
