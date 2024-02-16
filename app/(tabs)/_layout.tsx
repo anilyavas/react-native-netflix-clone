@@ -5,8 +5,8 @@ import { Pressable } from 'react-native';
 
 import Colors from '@/constants/Colors';
 import { useColorScheme } from '@/components/useColorScheme';
-import { useClientOnlyValue } from '@/components/useClientOnlyValue';
 import { MaterialIcons, AntDesign, Ionicons } from '@expo/vector-icons';
+import MovieDetailsScreen from '../MovieDetails';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
@@ -28,20 +28,6 @@ export default function TabLayout() {
           title: 'Home',
           tabBarIcon: ({ color }) => (
             <AntDesign name='home' size={24} color={color} />
-          ),
-          headerRight: () => (
-            <Link href='/modal' asChild>
-              <Pressable>
-                {({ pressed }) => (
-                  <FontAwesome
-                    name='info-circle'
-                    size={25}
-                    color={Colors[colorScheme ?? 'light'].text}
-                    style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
-                  />
-                )}
-              </Pressable>
-            </Link>
           ),
         }}
       />
